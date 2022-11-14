@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <title>Pizza Shop</title>
+    </head>
 <body>
 
 <h1>Order Pizza</h1>
 
-<form  method="GET">
-    <label for="topping1">Topping 1</label>
-    <input type="text" name="topping1" id="topping1">
-    <label for="topping2">Topping 2</label>
-    <input type="text" name="topping2" id="topping2">
-    <label for="size">Size</label>
-    <select id="size" name="size">
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-    </select>
+<h2>{{ message }}</h2>
+
+<form enctype="multipart/form-data" action="{% url 'order' %}" method="POST">
+
+    {% csrf_token %}
+    {{ pizzaOrderForm }}
     <input type="submit" value="Order Pizza">
+    
 </form>
-</body>
-</html>
